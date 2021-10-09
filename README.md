@@ -22,8 +22,21 @@ THEN the password is either displayed in an alert or written to the page
 
 <!-- Media -->
 
-- [ScreenShot](https://github.com/Zartender/Horiseon-Ecommerce-Marketing-Agency/blob/main/assets/images/Screen%20Shot%202021-09-30%20at%204.08.31%20PM.png)
-   - [Link](https://zartender.github.io/Horiseon-Ecommerce-Marketing-Agency/)
+- [ScreenShot](https://github.com/Zartender/Password-Gen/blob/main/Main/Assets/Media/Passwordgenerator.png)
+   - [Link]https://zartender.github.io/Password-Gen/()
+   - [Link](https://github.com/Zartender/Password-Gen)
 
 
 <!-- Collaborators -->
+
+Landon Hinkle
+Jalon Tuttle
+Brady Buchholz
+Antonio Marino
+TJ Tahmassebi
+
+<!-- Difficulty -->
+
+W/ the last bit.
+Will be revising. 
+Very disappointed with my attemp(s).
