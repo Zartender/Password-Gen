@@ -1,47 +1,119 @@
-// Assignment Code
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-  passwordText.value = password;
-}
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
 // global variables
 const lowerCaseVariable = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 const upperCaseVariable = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-const numbersList = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-const symbolsList = ["!", "@", "#", "%", "$", "^", "&", "*", "?"];
+const numberList = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+const symbolList = ["!", "@", "#", "%", "$", "^", "&", "*", "?"];
+const userChoiceDecline = ("Password not available. Please try again.")
+// Assignment Code
+var generateButton = document.querySelector("#generate");
+// Assigns the functionality of button to object generateButton.
+console.log(generateButton)
 
-const generatePassword = () => {
+// Write password to the #password input.
+function writePassword() {
+  // instructions for the interpretor to write the password.
+  var password = generatePassword();
+  // says the object password is = to function generatePassword.
+  var passwordText = document.querySelector("#password");
+  // says object passwordText has a value of the id="password" text area input.
+  passwordText.value = password;
+  // says whatever the output is of function generatePassword() is the password. 
+  console.log(password);
+  // logs the password to the console.
+  console.log(passwordText.value);
+  // logs the passwordText.value to the console.
+}
+
+
+
+// Add event listener to generate button.
+generateButton.addEventListener("click", writePassword);
+// listens for the click on the <Generate Password> button.
+
+
+function generatePassword() {
+
+  console.log("inside generate password");
+  // testing to see if generate password is called.
+  // 1. Ask password length /charcters. 
+  var userChoice = window.prompt("Please enter a password character value between 8 and 128 and click Ok to continue.");
+  // var computerChoice = Math.random();
+  if (!userChoice || userChoice < 8 || userChoice > 128) {
+    window.alert(userChoiceDecline);
+    console.log(userChoiceDecline);
+    return;
+  } else {
+    // 2. Confirm boxes lower, upper, number and special.
+    writeLowerCase();
+    writeUpperCase();
+    writeNumberList(); 
+    writeSymbolList();
+  }
   
-  // 1. Ask password length /charcters 
-
-
-
-  //2. Confirm boxes lower, upper, number and special 
+  
 
 
 
   //3. based on the confirm append all the arrayss together into a new variable  = combined list 
-  
-  
-  
+
+
+
   //4. For loop until passowrd length 
 
-    //4.1 Generate random index on the combined list 
+  //4.1 Generate random index on the combined list 
 
-    //4.2 generate a random leter 
+  //4.2 generate a random leter 
 
-    //4.3 append it to new final password variable created 
+  //4.3 append it to new final password variable created 
 
-  
-  
-  
-    //5. return the final password
 
+
+
+  //5. return the final password
+
+}
+
+
+
+
+function writeLowerCase() {
+  var userChoiceLower = window.confirm("Password must contain lowercase letters. Press Ok to continue.")
+
+  if (userChoiceLower == false) {
+    window.alert(userChoiceDecline);
+    console.log(userChoiceDecline);
+    return;
+  } else {console.log(lowerCaseVariable)};
+}
+
+function writeUpperCase() {
+  var userChoiceUpper = window.confirm("Password must contain uppercase letters. Press Ok to continue.")
+
+  if (userChoiceUpper == false) {
+    window.alert(userChoiceDecline);
+    console.log(userChoiceDecline);
+    return;
+  } else {console.log(upperCaseVariable)};
+}
+
+function writeNumberList() {
+  var userChoiceNumber = window.confirm("Password must contain numbers. Press Ok to continue.")
+
+  if (userChoiceNumber == false) {
+    window.alert(userChoiceDecline);
+    console.log(userChoiceDecline);
+    return;
+  } else {console.log(numberList)};
+}
+
+function writeSymbolList() {
+  var userChoiceSymbol = window.confirm("Password must contain symbols. Press Ok to continue.")
+
+  if (userChoiceSymbol == false) {
+    window.alert(userChoiceDecline);
+    console.log(userChoiceDecline);
+    return;
+  } else {console.log(symbolList)};
 }
 
 
@@ -49,15 +121,15 @@ const generatePassword = () => {
 
 
 
-// var generateBtn = document.querySelector("#generate");
-// var lowerCaseVariable = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-// console.log(lowerCaseVariable); // Logs in console an array of lowercase letter strings.
-// var upperCaseVariable = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-// console.log(upperCaseVariable); // Logs in console an array of uppercase letter strings.
-// var numberVariable = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-// console.log(numberVariable); // Logs in console an array of number strings.
-// var specialCharVariable = ["!", "@", "#", "%", "$", "^", "&", "*", "?"];
-// console.log(specialCharVariable); // Logs in console an array of special character strings.
+
+
+
+
+
+
+
+
+
 // // Write password to the #password input
 // var ecuComp = "";
 // console.log(ecuComp);
@@ -75,10 +147,10 @@ const generatePassword = () => {
 // console.log(defaultDecline);
 // var defaultAcceptCrit = ("Confirm to generate password utilizing ");
 // function writePassword() {
-  
+
 
 //   var password = generatePassword();
-  
+
 // var passwordText = document.querySelector("#password");
 // passwordText.value = password;
 // }
