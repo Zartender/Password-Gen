@@ -1,9 +1,11 @@
 // global variables
-const lowerCaseVariable = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-const upperCaseVariable = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-const numberList = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-const symbolList = ["!", "@", "#", "%", "$", "^", "&", "*", "?"];
-const userChoiceDecline = ("Password not available. Please try again.")
+var lowerCaseVariable = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var upperCaseVariable = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var numberList = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+var symbolList = ["!", "@", "#", "%", "$", "^", "&", "*", "?"];
+var userChoiceDecline = ("Password not available. Please try again.")
+
+
 // Assignment Code
 var generateButton = document.querySelector("#generate");
 // Assigns the functionality of button to object generateButton.
@@ -32,36 +34,43 @@ generateButton.addEventListener("click", writePassword);
 
 
 function generatePassword() {
-
-  console.log("inside generate password");
-  // testing to see if generate password is called.
-  // 1. Ask password length /charcters. 
   var userChoice = window.prompt("Please enter a password character value between 8 and 128 and click Ok to continue.");
   // var computerChoice = Math.random();
   if (!userChoice || userChoice < 8 || userChoice > 128) {
     window.alert(userChoiceDecline);
     console.log(userChoiceDecline);
-    return;
+
   } else {
-    // 2. Confirm boxes lower, upper, number and special.
-    writeLowerCase();
-    writeUpperCase();
-    writeNumberList(); 
-    writeSymbolList();
+
+    writeLowerCase(userChoice);
+    writeUpperCase(writeLowerCase);
+    writeNumberList(writeUpperCase);
+    writeSymbolList(writeNumberList);
+    
+
   }
-  
-  
+  // 3. based on the confirm append all the arrayss together into a new variable  = combined list 
+  var charSetLowUP = lowerCaseVariable.concat(upperCaseVariable);
+  var charSetNumSym = numberList.concat(symbolList);
+  var charSet = charSetNumSym.concat(charSetLowUP);
+  console.log(charSet);
+    
+  var emptyPassword = [];
+  // 4. For loop until password length 
+  for (var i = 0; i < userChoice; i++) {
+   var charSetFinal = charSet[Math.floor(Math.random() * charSet.length)];
+    emptyPassword.push(charSetFinal);
+    console.log(charSetFinal);
+  }
 
 
+    //4.1 Generate random index on the combined list 
+    // var index = Math.floor(Math.random() * options.length);
+    // var generateChoice = options[index];
 
-  //3. based on the confirm append all the arrayss together into a new variable  = combined list 
-
-
-
-  //4. For loop until passowrd length 
 
   //4.1 Generate random index on the combined list 
-
+ 
   //4.2 generate a random leter 
 
   //4.3 append it to new final password variable created 
@@ -70,6 +79,9 @@ function generatePassword() {
 
 
   //5. return the final password
+  var password = emptyPassword.join("");
+  console.log("Your password is: " + password);
+  return password;
 
 }
 
@@ -83,7 +95,7 @@ function writeLowerCase() {
     window.alert(userChoiceDecline);
     console.log(userChoiceDecline);
     return;
-  } else {console.log(lowerCaseVariable)};
+  } else { console.log(lowerCaseVariable) };
 }
 
 function writeUpperCase() {
@@ -93,7 +105,7 @@ function writeUpperCase() {
     window.alert(userChoiceDecline);
     console.log(userChoiceDecline);
     return;
-  } else {console.log(upperCaseVariable)};
+  } else { console.log(upperCaseVariable) };
 }
 
 function writeNumberList() {
@@ -103,7 +115,7 @@ function writeNumberList() {
     window.alert(userChoiceDecline);
     console.log(userChoiceDecline);
     return;
-  } else {console.log(numberList)};
+  } else { console.log(numberList) };
 }
 
 function writeSymbolList() {
@@ -113,10 +125,8 @@ function writeSymbolList() {
     window.alert(userChoiceDecline);
     console.log(userChoiceDecline);
     return;
-  } else {console.log(symbolList)};
+  } else { console.log(symbolList) };
 }
-
-
 
 
 
