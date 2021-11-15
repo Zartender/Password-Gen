@@ -46,7 +46,7 @@ function generatePassword() {
     writeUpperCase(writeLowerCase);
     writeNumberList(writeUpperCase);
     writeSymbolList(writeNumberList);
-    
+
 
   }
   // 3. based on the confirm append all the arrayss together into a new variable  = combined list 
@@ -54,28 +54,14 @@ function generatePassword() {
   var charSetNumSym = numberList.concat(symbolList);
   var charSet = charSetNumSym.concat(charSetLowUP);
   console.log(charSet);
-    
+
   var emptyPassword = [];
   // 4. For loop until password length 
   for (var i = 0; i < userChoice; i++) {
-   var charSetFinal = charSet[Math.floor(Math.random() * charSet.length)];
+    var charSetFinal = charSet[Math.floor(Math.random() * charSet.length)];
     emptyPassword.push(charSetFinal);
     console.log(charSetFinal);
   }
-
-
-    //4.1 Generate random index on the combined list 
-    // var index = Math.floor(Math.random() * options.length);
-    // var generateChoice = options[index];
-
-
-  //4.1 Generate random index on the combined list 
- 
-  //4.2 generate a random leter 
-
-  //4.3 append it to new final password variable created 
-
-
 
 
   //5. return the final password
@@ -136,81 +122,3 @@ function writeSymbolList() {
 
 
 
-
-
-
-
-// // Write password to the #password input
-// var ecuComp = "";
-// console.log(ecuComp);
-// var lowerConUpper = lowerCaseVariable.concat(upperCaseVariable);
-// console.log(lowerConUpper);
-// var numberConSpec = numberVariable.concat(specialCharVariable);
-// console.log(numberConSpec);
-// var passCharIndex = lowerConUpper.concat(numberConSpec);
-// console.log("Combine list", passCharIndex);
-
-// var userChoicePas;
-// // var targetCharIndex = passCharIndex[CharacterIndex].split("");
-// // console.log(targetCharIndex);
-// var defaultDecline = ("Accept necessary criteria or forget utilizing our generator, human!");
-// console.log(defaultDecline);
-// var defaultAcceptCrit = ("Confirm to generate password utilizing ");
-// function writePassword() {
-
-
-//   var password = generatePassword();
-
-// var passwordText = document.querySelector("#password");
-// passwordText.value = password;
-// }
-
-// // Declares commencement of password generation.
-// function generatePassword() {
-//   console.log("Inside generate password");
-//   var userChoice = prompt("Your password has to be between 8 and 128 characters. Click OK to continue.)");
-//   // var computerChoice = Math.random();
-//   if (userChoice < 8 || userChoice > 128) {
-//     alert("Password not available. Please try again.");
-//     console.log(userChoice);
-//     return;
-//   }
-//   lowerCaseVariable = confirm(defaultAcceptCrit + "lowercase letters?");
-//   console.log("include " + lowerCaseVariable);
-//   if (lowerCaseVariable == false) {
-//     alert(defaultDecline);
-//   } else {
-//     upperCaseVariable = confirm(defaultAcceptCrit + "uppercase letters?");
-//     console.log("include " + upperCaseVariable);
-//   } if (upperCaseVariable == false) {
-//     alert(defaultDecline);
-//   } else {
-//     numberVariable = confirm(defaultAcceptCrit + "numbers?");
-//     console.log("include " + numberVariable);
-//   } if (numberVariable == false) {
-//     alert(defaultDecline);
-//   } else {
-//     specialCharVariable = confirm(defaultAcceptCrit + "special characters?");
-//     console.log("include " + specialCharVariable);
-//   } if (specialCharVariable == false) {
-//     alert(defaultDecline);
-//   }
-
-//   userChoicePas = userChoice
-//   var passwordFinal = "";
-//   for (var i = 0; i < userChoicePas; i++) {
-//     // password = CharacterIndex * ecuComp.length;
-//     var CharacterIndex = Math.floor(Math.random() * passCharIndex.length);
-//     console.log("Random Index", CharacterIndex);
-//     passwordFinal += passCharIndex[CharacterIndex];
-//     console.log(passwordFinal);
-//   }
-//   return passwordFinal;
-// }
-
-
-
-
-
-// // // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
